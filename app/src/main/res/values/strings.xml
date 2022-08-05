@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyCloudMusic</string>
+    <string name="copyright">Copyright © %1$d Ixuea. All Rights Reserved</string>
 </resources>
