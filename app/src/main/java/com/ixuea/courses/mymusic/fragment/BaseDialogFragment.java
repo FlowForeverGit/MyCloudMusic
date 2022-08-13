@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -48,10 +49,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
 
     /**
      * 获取View
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
      */
     protected abstract View getLayoutView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
@@ -62,5 +59,12 @@ public abstract class BaseDialogFragment extends DialogFragment {
         initViews();
         initDatum();
         initListeners();
+    }
+
+    /**
+     * 给DialogFragment增加一个findViewById方法
+     */
+    public <T extends View> T findViewById(@IdRes int id) {
+        return getDialog().findViewById(id);
     }
 }

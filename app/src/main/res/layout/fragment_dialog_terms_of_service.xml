@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/padding_large"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -22,14 +23,32 @@
         <TextView
             android:lineSpacingMultiplier="@dimen/line_space"
             android:textColor="?attr/colorOnSurface"
-            android:id="@+id/terms_of_service_content"
+            android:id="@+id/content"
             android:textSize="@dimen/text_meddle"
             android:text="@string/term_service_privacy_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:background="?android:attr/colorBackground"
+            android:layout_height="wrap_content"/>
     </ScrollView>
 
     <Button
+        android:id="@+id/agree"
+        app:cornerRadius="@dimen/d27_5"
+        android:height="@dimen/super_button_height"
+        android:text="@string/agree"
+        android:layout_marginTop="@dimen/padding_large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/disagree"
+        android:textSize="@dimen/text_small"
+        android:textColor="@color/black80"
+        android:height="@dimen/super_button_height"
+        android:text="@string/disagree"
+        android:layout_marginTop="@dimen/padding_meddle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

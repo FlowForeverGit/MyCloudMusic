@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="SuperUI.NoActionbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--背景色-->
         <item name="android:colorBackground">@color/black183</item>
+
+        <!--主色调-->
+        <item name="colorPrimary">@color/primary</item>
     </style>
 </resources>

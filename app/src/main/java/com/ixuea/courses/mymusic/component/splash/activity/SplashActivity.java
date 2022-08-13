@@ -2,6 +2,7 @@ package com.ixuea.courses.mymusic.component.splash.activity;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
 
 public class SplashActivity extends BaseLogicActivity {
 
+    private static final String TAG = "SplashActivity";
     private TextView copyright;
 
     @Override
@@ -52,11 +54,6 @@ public class SplashActivity extends BaseLogicActivity {
      * 同意服务条款
      */
     private void showTermsOfServiceAgreementDialog() {
-        TermsOfServiceDialogFragment.show(getSupportFragmentManager(), new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        TermsOfServiceDialogFragment.show(getSupportFragmentManager(), view -> Log.d(TAG, "onClick: "+"用户已经同意！"));
     }
 }
