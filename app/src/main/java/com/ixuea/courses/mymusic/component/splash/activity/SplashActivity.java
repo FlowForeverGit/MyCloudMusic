@@ -3,10 +3,12 @@ package com.ixuea.courses.mymusic.component.splash.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.ixuea.courses.mymusic.R;
 import com.ixuea.courses.mymusic.activity.BaseLogicActivity;
+import com.ixuea.courses.mymusic.component.splash.fragment.TermsOfServiceDialogFragment;
 import com.ixuea.courses.mymusic.util.SuperDarkUtil;
 import com.ixuea.courses.mymusic.util.SuperDateUtil;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
@@ -42,5 +44,19 @@ public class SplashActivity extends BaseLogicActivity {
         super.initDatum();
 
         copyright.setText(getResources().getString(R.string.copyright, SuperDateUtil.currentYear()));
+
+        showTermsOfServiceAgreementDialog();
+    }
+
+    /**
+     * 同意服务条款
+     */
+    private void showTermsOfServiceAgreementDialog() {
+        TermsOfServiceDialogFragment.show(getSupportFragmentManager(), new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 }

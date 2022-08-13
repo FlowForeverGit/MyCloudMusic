@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/padding_large"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--标题-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/term_service_privacy"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="@dimen/text_large"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_marginTop="@dimen/padding_large"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <TextView
+            android:lineSpacingMultiplier="@dimen/line_space"
+            android:textColor="?attr/colorOnSurface"
+            android:id="@+id/terms_of_service_content"
+            android:textSize="@dimen/text_meddle"
+            android:text="@string/term_service_privacy_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
