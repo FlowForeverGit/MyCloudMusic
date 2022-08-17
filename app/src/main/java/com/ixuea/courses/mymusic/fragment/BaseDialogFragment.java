@@ -1,16 +1,15 @@
 package com.ixuea.courses.mymusic.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ixuea.courses.mymusic.activity.BaseCommonActivity;
+
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 /**
@@ -66,5 +65,9 @@ public abstract class BaseDialogFragment extends DialogFragment {
      */
     public <T extends View> T findViewById(@IdRes int id) {
         return getDialog().findViewById(id);
+    }
+
+    protected BaseCommonActivity getHostActivity() {
+        return (BaseCommonActivity) getActivity();
     }
 }

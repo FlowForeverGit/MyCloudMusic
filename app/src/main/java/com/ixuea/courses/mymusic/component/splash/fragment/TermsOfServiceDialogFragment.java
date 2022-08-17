@@ -104,4 +104,6 @@ public class TermsOfServiceDialogFragment extends BaseDialogFragment {
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes((WindowManager.LayoutParams) params);
     }
+
+
 }

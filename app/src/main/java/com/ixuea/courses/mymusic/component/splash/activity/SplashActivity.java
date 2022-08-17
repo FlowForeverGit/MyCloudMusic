@@ -2,7 +2,6 @@ package com.ixuea.courses.mymusic.component.splash.activity;
 
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 import com.ixuea.courses.mymusic.R;
 import com.ixuea.courses.mymusic.activity.BaseLogicActivity;
 import com.ixuea.courses.mymusic.component.splash.fragment.TermsOfServiceDialogFragment;
+import com.ixuea.courses.mymusic.util.DefaultPreferenceUtil;
 import com.ixuea.courses.mymusic.util.SuperDarkUtil;
 import com.ixuea.courses.mymusic.util.SuperDateUtil;
 import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
@@ -46,14 +46,23 @@ public class SplashActivity extends BaseLogicActivity {
         super.initDatum();
 
         copyright.setText(getResources().getString(R.string.copyright, SuperDateUtil.currentYear()));
-
-        showTermsOfServiceAgreementDialog();
+        if (DefaultPreferenceUtil.getInstance(getHostActivity()).isAcceptTermsOfServiceAgreement()) {
+        //TODO: next step
+        }
+        else {
+            showTermsOfServiceAgreementDialog();
+        }
     }
 
     /**
      * 同意服务条款
      */
     private void showTermsOfServiceAgreementDialog() {
-        TermsOfServiceDialogFragment.show(getSupportFragmentManager(), view -> Log.d(TAG, "onClick: "+"用户已经同意！"));
+        TermsOfServiceDialogFragment.show(getSupportFragmentManager(), new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DefaultPreferenceUtil.getInstance(getHostActivity()).setAcceptTermsOfServiceAgreement(true);
+            }
+        });
     }
 }
