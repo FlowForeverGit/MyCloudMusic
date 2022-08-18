@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.ixuea.courses.mymusic.R;
 import com.ixuea.courses.mymusic.activity.BaseLogicActivity;
+import com.ixuea.courses.mymusic.activity.BaseViewModelActivity;
 import com.ixuea.courses.mymusic.component.splash.fragment.TermsOfServiceDialogFragment;
+import com.ixuea.courses.mymusic.databinding.ActivitySplashBinding;
 import com.ixuea.courses.mymusic.util.DefaultPreferenceUtil;
 import com.ixuea.courses.mymusic.util.SuperDarkUtil;
 import com.ixuea.courses.mymusic.util.SuperDateUtil;
@@ -27,16 +29,9 @@ import permissions.dispatcher.PermissionRequest;
 import permissions.dispatcher.RuntimePermissions;
 
 @RuntimePermissions
-public class SplashActivity extends BaseLogicActivity {
+public class SplashActivity extends BaseViewModelActivity<ActivitySplashBinding> {
 
     private static final String TAG = "SplashActivity";
-    private TextView copyright;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-    }
 
     @Override
     protected void initViews() {
@@ -50,15 +45,13 @@ public class SplashActivity extends BaseLogicActivity {
         else {
             QMUIStatusBarHelper.setStatusBarDarkMode(this);
         }
-
-         copyright = findViewById(R.id.copyright);
     }
 
     @Override
     protected void initDatum() {
         super.initDatum();
 
-        copyright.setText(getResources().getString(R.string.copyright, SuperDateUtil.currentYear()));
+        mBinding.copyright.setText(getResources().getString(R.string.copyright, SuperDateUtil.currentYear()));
         if (DefaultPreferenceUtil.getInstance(getHostActivity()).isAcceptTermsOfServiceAgreement()) {
             checkPermission();
         }

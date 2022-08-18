@@ -9,11 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.ixuea.courses.mymusic.R;
-import com.ixuea.courses.mymusic.fragment.BaseDialogFragment;
+import com.ixuea.courses.mymusic.databinding.FragmentDialogTermsOfServiceBinding;
+import com.ixuea.courses.mymusic.fragment.BaseViewModelDialogFragment;
 import com.ixuea.courses.mymusic.util.ScreenUtil;
 import com.ixuea.courses.mymusic.util.SuperTextUtil;
 import com.ixuea.superui.process.SuperProcessUtil;
@@ -21,12 +20,8 @@ import com.ixuea.superui.process.SuperProcessUtil;
 import androidx.fragment.app.FragmentManager;
 
 
-public class TermsOfServiceDialogFragment extends BaseDialogFragment {
+public class TermsOfServiceDialogFragment extends BaseViewModelDialogFragment<FragmentDialogTermsOfServiceBinding> {
     private static final String TAG = "TermsOfServiceDialogFragment";
-
-    private TextView mContentView;
-    private Button mAgreeButton;
-    private Button mDisagreeButton;
     private View.OnClickListener onAgreementClickListener;
 
     @Override
@@ -36,11 +31,7 @@ public class TermsOfServiceDialogFragment extends BaseDialogFragment {
         //点击窗口外边不能关闭
         setCancelable(false);
 
-        mContentView = findViewById(R.id.content);
-        mAgreeButton = findViewById(R.id.agree);
-        mDisagreeButton = findViewById(R.id.disagree);
-
-        SuperTextUtil.setLinkColor(mContentView, getActivity().getColor(R.color.link));
+        SuperTextUtil.setLinkColor(mBinding.content, getActivity().getColor(R.color.link));
     }
 
     @Override
@@ -50,19 +41,19 @@ public class TermsOfServiceDialogFragment extends BaseDialogFragment {
         Spanned content = Html.fromHtml(getString(R.string.term_service_privacy_content));
 
         SpannableStringBuilder builder = SuperTextUtil.setHtmlLinkClick(content, data -> Log.d(TAG, "onLinkClick: "+data));
-        mContentView.setText(builder);
+        mBinding.content.setText(builder);
     }
 
     @Override
     protected void initListeners() {
         super.initListeners();
 
-        mAgreeButton.setOnClickListener(view -> {
+        mBinding.agree.setOnClickListener(view -> {
             dismiss();
             onAgreementClickListener.onClick(view);
         });
 
-        mDisagreeButton.setOnClickListener(view -> {
+        mBinding.disagree.setOnClickListener(view -> {
             dismiss();
             SuperProcessUtil.killApp();
         });
