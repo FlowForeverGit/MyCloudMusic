@@ -2,18 +2,18 @@ package com.ixuea.courses.mymusic.component.splash.activity;
 
 
 import android.Manifest;
-import android.nfc.Tag;
-import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.TextView;
 
+import com.ixuea.courses.mymusic.MainActivity;
 import com.ixuea.courses.mymusic.R;
-import com.ixuea.courses.mymusic.activity.BaseLogicActivity;
 import com.ixuea.courses.mymusic.activity.BaseViewModelActivity;
+import com.ixuea.courses.mymusic.component.guide.activity.GuideActivity;
 import com.ixuea.courses.mymusic.component.splash.fragment.TermsOfServiceDialogFragment;
+import com.ixuea.courses.mymusic.config.Config;
 import com.ixuea.courses.mymusic.databinding.ActivitySplashBinding;
 import com.ixuea.courses.mymusic.util.DefaultPreferenceUtil;
+import com.ixuea.courses.mymusic.util.PreferenceUtil;
 import com.ixuea.courses.mymusic.util.SuperDarkUtil;
 import com.ixuea.courses.mymusic.util.SuperDateUtil;
 import com.ixuea.superui.process.SuperProcessUtil;
@@ -87,7 +87,22 @@ public class SplashActivity extends BaseViewModelActivity<ActivitySplashBinding>
     }
 
     private void prepareNext() {
-        System.out.println(TAG + "下一步");
+        if (mPreference.isShowGuide()) {
+            startActivityAfterFinishThis(GuideActivity.class);
+            return;
+        }
+
+        postNext();
+    }
+
+    private void postNext() {
+        mBinding.copyright.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivityAfterFinishThis(MainActivity.class);
+            }
+        } , Config.SPLASH_DEFAULT_DELAY_TIME);
+
     }
 
     /**

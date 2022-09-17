@@ -79,11 +79,6 @@ public class TermsOfServiceDialogFragment extends BaseViewModelDialogFragment<Fr
     }
 
     @Override
-    protected View getLayoutView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dialog_terms_of_service, container, false);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
 

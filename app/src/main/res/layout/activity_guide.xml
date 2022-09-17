@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <include layout="@layout/fill" />
+        <Button
+            android:id="@+id/login_or_register"
+            android:text="@string/register_and_login"
+            style="@style/SuperButton.Primary"
+            android:minWidth="@dimen/button_width_large"
+            android:layout_width="wrap_content" />
+        <include layout="@layout/fill" />
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:id="@+id/experience_now"
+            android:text="@string/experience_now"
+            android:textSize="@dimen/text_small"
+            android:textColor="@color/black80"
+            android:minWidth="@dimen/button_width_large"
+            app:strokeColor="@color/primary"
+            app:strokeWidth="@dimen/d1"
+            android:backgroundTint="?attr/colorLightWhite"
+            android:layout_marginHorizontal="@dimen/d5"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/super_button_height" />
+        <include layout="@layout/fill" />
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

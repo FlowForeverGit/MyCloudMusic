@@ -37,6 +37,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
+    //文件读写
+    //https://github.com/Tencent/MMKV
+    implementation 'com.tencent:mmkv:1.2.14'
+
     //UI相关
     //https://github.com/Tencent/QMUI_Android
     implementation 'com.qmuiteam:qmui:2.0.1'

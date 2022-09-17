@@ -2,5 +2,8 @@
     <!-- Base application theme. -->
     <style name="SuperUI.NoActionbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:colorBackground">@color/black17</item>
+
+        <item name="colorLightWhite">@color/black183</item>
+
     </style>
 </resources>
